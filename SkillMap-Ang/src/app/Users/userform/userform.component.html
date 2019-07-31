@@ -1,0 +1,40 @@
+<p>
+  userform works!
+</p>
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div class="form-group">
+      
+      <input type="hidden" name="empid" #empid="ngModel" [(ngModel)]="uservice.userData.empid" class="form-control">
+    </div>
+<div class="form-group">
+  <label>Name</label>
+  <input name="name" #name="ngModel" [(ngModel)]="uservice.userData.name" class="form-control" required>
+  <div class="validation-error" *ngIf="name.invalid && name.touched">Enter the Name</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+    <label>Contact No.</label>
+    <input name="phoneno" #phoneno="ngModel" [(ngModel)]="uservice.userData.phoneno" class="form-control" required>
+    <div class="validation-error" *ngIf="phoneno.invalid && phoneno.touched">Enter the Contact No.</div>
+  </div>
+  <div class="form-group col-md-6">
+      <label>EmailId</label>
+      <input name="emailid" #emailid="ngModel" [(ngModel)]="uservice.userData.emailid" class="form-control" required>
+      <div class="validation-error" *ngIf="emailid.invalid && emailid.touched">Enter the EmailId</div>
+    </div>
+  </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input name="address" #address="ngModel" [(ngModel)]="uservice.userData.address" class="form-control" required>
+        <div class="validation-error" *ngIf="address.invalid && address.touched">Enter the Address</div>
+      </div>
+      <div class="form-group">
+          <label>Skills of the Employee</label>
+          <input name="skill" #skill="ngModel" [(ngModel)]="uservice.userData.skill" class="form-control" required>
+          <div class="validation-error" *ngIf="skill.invalid && skill.touched">Enter the Skills of the Employee</div>
+        </div>
+<div >
+<button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Save Employee Details</button>
+</div>
+
+</form>

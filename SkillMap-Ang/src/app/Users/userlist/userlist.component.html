@@ -1,0 +1,41 @@
+<p>
+  userlist works!
+</p>
+
+<h2>
+  Employee List
+</h2>
+
+<div   *ngIf="users">
+    
+    <div style="margin-top:40px;" class="form-group">
+    
+        <input type="text" class="form-control" placeholder="search by Skills"
+        style="width:300px" [(ngModel)]="searchTerm" style="border-color:blue" />
+        
+    </div>
+
+    <table class="table table-hover"  >
+      <tr>
+        <th>EmpID</th>
+        <th>Name</th>
+        <th>Contact No.</th>
+        <th>EmailId</th>
+        <th>Address</th>
+        <th>Skills</th>
+      </tr>
+      <tr *ngFor="let user of users | userskills:searchTerm">
+          <!-- <tr *ngFor="let user of users"> -->
+          <td (click)="populateForm(user)">{{user.empid}}</td>
+          <td (click)="populateForm(user)">{{user.name}}</td>
+          <td (click)="populateForm(user)">{{user.phoneno}}</td>
+          <td (click)="populateForm(user)">{{user.emailid}}</td>
+          <td (click)="populateForm(user)">{{user.address}}</td>
+          <td (click)="populateForm(user)">{{user.skill}}</td>
+          <td>
+            <button class="btn btn-sm btn-outline-danger" (click)="onDelete(user.empid)">X</button>
+          </td>
+      </tr>
+    </table>
+</div>
+    
